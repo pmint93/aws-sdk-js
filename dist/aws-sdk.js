@@ -128837,7 +128837,7 @@ module.exports = exports = {
     convertToBuffer: convertToBuffer,
 }
 
-},{"buffer/":329}],242:[function(require,module,exports){
+},{"buffer/":330}],242:[function(require,module,exports){
 var hashUtils = require('./browserHashUtils');
 
 /**
@@ -129088,7 +129088,7 @@ function ii(a, b, c, d, x, s, t) {
     return cmn(c ^ (b | (~d)), a, b, x, s, t);
 }
 
-},{"./browserHashUtils":241,"buffer/":329}],244:[function(require,module,exports){
+},{"./browserHashUtils":241,"buffer/":330}],244:[function(require,module,exports){
 var Buffer = require('buffer/').Buffer;
 var hashUtils = require('./browserHashUtils');
 
@@ -129256,7 +129256,7 @@ Sha1.prototype.processBlock = function processBlock() {
     }
 }
 
-},{"./browserHashUtils":241,"buffer/":329}],245:[function(require,module,exports){
+},{"./browserHashUtils":241,"buffer/":330}],245:[function(require,module,exports){
 var Buffer = require('buffer/').Buffer;
 var hashUtils = require('./browserHashUtils');
 
@@ -129497,7 +129497,7 @@ Sha256.prototype.hashBuffer = function () {
     state[7] += state7;
 };
 
-},{"./browserHashUtils":241,"buffer/":329}],246:[function(require,module,exports){
+},{"./browserHashUtils":241,"buffer/":330}],246:[function(require,module,exports){
 (function (process){
 var util = require('./util');
 
@@ -129536,7 +129536,7 @@ if (typeof process === 'undefined') {
 }
 
 }).call(this,require('_process'))
-},{"./browserCryptoLib":240,"./core":249,"./credentials":250,"./credentials/cognito_identity_credentials":251,"./credentials/credential_provider_chain":252,"./credentials/saml_credentials":253,"./credentials/temporary_credentials":254,"./credentials/web_identity_credentials":255,"./event-stream/buffered-create-event-stream":262,"./http/xhr":271,"./util":320,"./xml/browser_parser":321,"_process":335,"buffer/":329,"querystring/":342,"url/":344}],247:[function(require,module,exports){
+},{"./browserCryptoLib":240,"./core":249,"./credentials":250,"./credentials/cognito_identity_credentials":251,"./credentials/credential_provider_chain":252,"./credentials/saml_credentials":253,"./credentials/temporary_credentials":254,"./credentials/web_identity_credentials":255,"./event-stream/buffered-create-event-stream":262,"./http/xhr":271,"./util":321,"./xml/browser_parser":322,"_process":336,"buffer/":330,"querystring/":343,"url/":345}],247:[function(require,module,exports){
 var AWS = require('../core'),
     url = AWS.util.url,
     crypto = AWS.util.crypto.lib,
@@ -130392,7 +130392,7 @@ require('./param_validator');
  */
 AWS.events = new AWS.SequentialExecutor();
 
-},{"./api_loader":239,"./config":248,"./event_listeners":269,"./http":270,"./json/builder":272,"./json/parser":273,"./model/api":274,"./model/operation":276,"./model/paginator":277,"./model/resource_waiter":278,"./model/shape":279,"./param_validator":280,"./protocol/json":282,"./protocol/query":283,"./protocol/rest":284,"./protocol/rest_json":285,"./protocol/rest_xml":286,"./request":291,"./resource_waiter":292,"./response":293,"./sequential_executor":295,"./service":296,"./signers/request_signer":312,"./util":320,"./xml/builder":322}],250:[function(require,module,exports){
+},{"./api_loader":239,"./config":248,"./event_listeners":269,"./http":270,"./json/builder":272,"./json/parser":273,"./model/api":274,"./model/operation":276,"./model/paginator":277,"./model/resource_waiter":278,"./model/shape":279,"./param_validator":280,"./protocol/json":282,"./protocol/query":283,"./protocol/rest":284,"./protocol/rest_json":285,"./protocol/rest_xml":286,"./request":291,"./resource_waiter":292,"./response":293,"./sequential_executor":295,"./service":296,"./signers/request_signer":312,"./util":321,"./xml/builder":323}],250:[function(require,module,exports){
 var AWS = require('./core');
 
 /**
@@ -130468,10 +130468,12 @@ AWS.Credentials = AWS.util.inherit({
       this.accessKeyId = creds.accessKeyId;
       this.secretAccessKey = creds.secretAccessKey;
       this.sessionToken = creds.sessionToken;
+      this.remoteAuthorizing = creds.remoteAuthorizing
     } else {
       this.accessKeyId = arguments[0];
       this.secretAccessKey = arguments[1];
       this.sessionToken = arguments[2];
+      this.remoteAuthorizing = arguments[3];
     }
   },
 
@@ -133604,7 +133606,7 @@ AWS.EventListeners = {
   })
 };
 
-},{"./core":249,"./protocol/json":282,"./protocol/query":283,"./protocol/rest":284,"./protocol/rest_json":285,"./protocol/rest_xml":286,"./sequential_executor":295,"util":346}],270:[function(require,module,exports){
+},{"./core":249,"./protocol/json":282,"./protocol/query":283,"./protocol/rest":284,"./protocol/rest_json":285,"./protocol/rest_xml":286,"./sequential_executor":295,"util":347}],270:[function(require,module,exports){
 var AWS = require('./core');
 var inherit = AWS.util.inherit;
 
@@ -133970,7 +133972,7 @@ AWS.HttpClient.prototype = AWS.XHRClient.prototype;
  */
 AWS.HttpClient.streamsApiVersion = 1;
 
-},{"../core":249,"../http":270,"events":330}],272:[function(require,module,exports){
+},{"../core":249,"../http":270,"events":331}],272:[function(require,module,exports){
 var util = require('../util');
 
 function JsonBuilder() { }
@@ -134031,7 +134033,7 @@ function translateScalar(value, shape) {
  */
 module.exports = JsonBuilder;
 
-},{"../util":320}],273:[function(require,module,exports){
+},{"../util":321}],273:[function(require,module,exports){
 var util = require('../util');
 
 function JsonParser() { }
@@ -134100,7 +134102,7 @@ function translateScalar(value, shape) {
  */
 module.exports = JsonParser;
 
-},{"../util":320}],274:[function(require,module,exports){
+},{"../util":321}],274:[function(require,module,exports){
 var Collection = require('./collection');
 var Operation = require('./operation');
 var Shape = require('./shape');
@@ -134168,7 +134170,7 @@ function Api(api, options) {
  */
 module.exports = Api;
 
-},{"../util":320,"./collection":275,"./operation":276,"./paginator":277,"./resource_waiter":278,"./shape":279}],275:[function(require,module,exports){
+},{"../util":321,"./collection":275,"./operation":276,"./paginator":277,"./resource_waiter":278,"./shape":279}],275:[function(require,module,exports){
 var memoizedProperty = require('../util').memoizedProperty;
 
 function memoize(name, value, fn, nameTr) {
@@ -134193,7 +134195,7 @@ function Collection(iterable, options, fn, nameTr) {
  */
 module.exports = Collection;
 
-},{"../util":320}],276:[function(require,module,exports){
+},{"../util":321}],276:[function(require,module,exports){
 var Shape = require('./shape');
 
 var util = require('../util');
@@ -134300,7 +134302,7 @@ function hasEventStream(topLevelShape) {
  */
 module.exports = Operation;
 
-},{"../util":320,"./shape":279}],277:[function(require,module,exports){
+},{"../util":321,"./shape":279}],277:[function(require,module,exports){
 var property = require('../util').property;
 
 function Paginator(name, paginator) {
@@ -134316,7 +134318,7 @@ function Paginator(name, paginator) {
  */
 module.exports = Paginator;
 
-},{"../util":320}],278:[function(require,module,exports){
+},{"../util":321}],278:[function(require,module,exports){
 var util = require('../util');
 var property = util.property;
 
@@ -134351,7 +134353,7 @@ function ResourceWaiter(name, waiter, options) {
  */
 module.exports = ResourceWaiter;
 
-},{"../util":320}],279:[function(require,module,exports){
+},{"../util":321}],279:[function(require,module,exports){
 var Collection = require('./collection');
 
 var util = require('../util');
@@ -134740,7 +134742,7 @@ Shape.shapes = {
  */
 module.exports = Shape;
 
-},{"../util":320,"./collection":275}],280:[function(require,module,exports){
+},{"../util":321,"./collection":275}],280:[function(require,module,exports){
 var AWS = require('./core');
 
 /**
@@ -135189,7 +135191,7 @@ module.exports = {
   extractData: extractData
 };
 
-},{"../json/builder":272,"../json/parser":273,"../util":320}],283:[function(require,module,exports){
+},{"../json/builder":272,"../json/parser":273,"../util":321}],283:[function(require,module,exports){
 var AWS = require('../core');
 var util = require('../util');
 var QueryParamSerializer = require('../query/query_param_serializer');
@@ -135298,7 +135300,7 @@ module.exports = {
   extractData: extractData
 };
 
-},{"../core":249,"../model/shape":279,"../query/query_param_serializer":287,"../util":320}],284:[function(require,module,exports){
+},{"../core":249,"../model/shape":279,"../query/query_param_serializer":287,"../util":321}],284:[function(require,module,exports){
 var util = require('../util');
 
 function populateMethod(req) {
@@ -135446,7 +135448,7 @@ module.exports = {
   generateURI: generateURI
 };
 
-},{"../util":320}],285:[function(require,module,exports){
+},{"../util":321}],285:[function(require,module,exports){
 var util = require('../util');
 var Rest = require('./rest');
 var Json = require('./json');
@@ -135544,7 +135546,7 @@ module.exports = {
   extractData: extractData
 };
 
-},{"../json/builder":272,"../json/parser":273,"../util":320,"./json":282,"./rest":284}],286:[function(require,module,exports){
+},{"../json/builder":272,"../json/parser":273,"../util":321,"./json":282,"./rest":284}],286:[function(require,module,exports){
 var AWS = require('../core');
 var util = require('../util');
 var Rest = require('./rest');
@@ -135654,7 +135656,7 @@ module.exports = {
   extractData: extractData
 };
 
-},{"../core":249,"../util":320,"./rest":284}],287:[function(require,module,exports){
+},{"../core":249,"../util":321,"./rest":284}],287:[function(require,module,exports){
 var util = require('../util');
 
 function QueryParamSerializer() {
@@ -135740,7 +135742,7 @@ function serializeMember(name, value, rules, fn) {
  */
 module.exports = QueryParamSerializer;
 
-},{"../util":320}],288:[function(require,module,exports){
+},{"../util":321}],288:[function(require,module,exports){
 var AWS = require('../core');
 
 /**
@@ -136032,7 +136034,7 @@ function configureEndpoint(service) {
  */
 module.exports = configureEndpoint;
 
-},{"./region_config_data.json":290,"./util":320}],290:[function(require,module,exports){
+},{"./region_config_data.json":290,"./util":321}],290:[function(require,module,exports){
 module.exports={
   "rules": {
     "*/*": {
@@ -136906,7 +136908,7 @@ AWS.util.addPromises(AWS.Request);
 AWS.util.mixin(AWS.Request, AWS.SequentialExecutor);
 
 }).call(this,require('_process'))
-},{"./core":249,"./state_machine":319,"_process":335,"jmespath":334}],292:[function(require,module,exports){
+},{"./core":249,"./state_machine":320,"_process":336,"jmespath":335}],292:[function(require,module,exports){
 /**
  * Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
@@ -137112,7 +137114,7 @@ AWS.ResourceWaiter = inherit({
   }
 });
 
-},{"./core":249,"jmespath":334}],293:[function(require,module,exports){
+},{"./core":249,"jmespath":335}],293:[function(require,module,exports){
 var AWS = require('./core');
 var inherit = AWS.util.inherit;
 var jmespath = require('jmespath');
@@ -137315,7 +137317,7 @@ AWS.Response = inherit({
 
 });
 
-},{"./core":249,"jmespath":334}],294:[function(require,module,exports){
+},{"./core":249,"jmespath":335}],294:[function(require,module,exports){
 var AWS = require('../core');
 var byteLength = AWS.util.string.byteLength;
 var Buffer = AWS.util.Buffer;
@@ -140708,6 +140710,7 @@ AWS.Signers.RequestSigner.getVersion = function getVersion(version) {
     case 'v2': return AWS.Signers.V2;
     case 'v3': return AWS.Signers.V3;
     case 'v4': return AWS.Signers.V4;
+    case 'vccloud': return AWS.Signers.VCCloud;
     case 's3': return AWS.Signers.S3;
     case 'v3https': return AWS.Signers.V3Https;
   }
@@ -140718,10 +140721,11 @@ require('./v2');
 require('./v3');
 require('./v3https');
 require('./v4');
+require('./vccloud');
 require('./s3');
 require('./presign');
 
-},{"../core":249,"./presign":311,"./s3":313,"./v2":314,"./v3":315,"./v3https":316,"./v4":317}],313:[function(require,module,exports){
+},{"../core":249,"./presign":311,"./s3":313,"./v2":314,"./v3":315,"./v3https":316,"./v4":317,"./vccloud":319}],313:[function(require,module,exports){
 var AWS = require('../core');
 var inherit = AWS.util.inherit;
 
@@ -141373,6 +141377,186 @@ module.exports = {
 };
 
 },{"../core":249}],319:[function(require,module,exports){
+var AWS = require('../core');
+var inherit = AWS.util.inherit;
+
+/**
+ * @api private
+ */
+AWS.Signers.VCCloud = inherit(AWS.Signers.RequestSigner, {
+  /**
+   * When building the stringToSign, these sub resource params should be
+   * part of the canonical resource string with their NON-decoded values
+   */
+  subResources: {
+    'acl': 1,
+    'accelerate': 1,
+    'analytics': 1,
+    'cors': 1,
+    'lifecycle': 1,
+    'delete': 1,
+    'inventory': 1,
+    'location': 1,
+    'logging': 1,
+    'metrics': 1,
+    'notification': 1,
+    'partNumber': 1,
+    'policy': 1,
+    'requestPayment': 1,
+    'replication': 1,
+    'restore': 1,
+    'tagging': 1,
+    'torrent': 1,
+    'uploadId': 1,
+    'uploads': 1,
+    'versionId': 1,
+    'versioning': 1,
+    'versions': 1,
+    'website': 1
+  },
+
+  // when building the stringToSign, these querystring params should be
+  // part of the canonical resource string with their NON-encoded values
+  responseHeaders: {
+    'response-content-type': 1,
+    'response-content-language': 1,
+    'response-expires': 1,
+    'response-cache-control': 1,
+    'response-content-disposition': 1,
+    'response-content-encoding': 1
+  },
+
+  addAuthorization: function addAuthorization(credentials, date) {
+    if (!this.request.headers['presigned-expires']) {
+      this.request.headers['X-Amz-Date'] = AWS.util.date.rfc822(date);
+    }
+
+    if (credentials.sessionToken) {
+      // presigned URLs require this header to be lowercased
+      this.request.headers['x-amz-security-token'] = credentials.sessionToken;
+    }
+
+    if(credentials.remoteAuthorizing) {
+      var auth = credentials.remoteAuthorizing(this.request, credentials, this.canonicalizedResource())
+    } else {
+      var signature = this.sign(credentials.secretAccessKey, this.stringToSign());
+      var auth = 'AWS ' + credentials.accessKeyId + ':' + signature;
+    }
+    this.request.headers['Authorization'] = auth;
+  },
+
+  stringToSign: function stringToSign() {
+    var r = this.request;
+
+    var parts = [];
+    parts.push(r.method);
+    parts.push(r.headers['Content-MD5'] || '');
+    parts.push(r.headers['Content-Type'] || '');
+
+    // This is the "Date" header, but we use X-Amz-Date.
+    // The S3 signing mechanism requires us to pass an empty
+    // string for this Date header regardless.
+    parts.push(r.headers['presigned-expires'] || '');
+
+    var headers = this.canonicalizedAmzHeaders();
+    if (headers) parts.push(headers);
+    parts.push(this.canonicalizedResource());
+
+    return parts.join('\n');
+
+  },
+
+  canonicalizedAmzHeaders: function canonicalizedAmzHeaders() {
+
+    var amzHeaders = [];
+
+    AWS.util.each(this.request.headers, function (name) {
+      if (name.match(/^x-amz-/i))
+        amzHeaders.push(name);
+    });
+
+    amzHeaders.sort(function (a, b) {
+      return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
+    });
+
+    var parts = [];
+    AWS.util.arrayEach.call(this, amzHeaders, function (name) {
+      parts.push(name.toLowerCase() + ':' + String(this.request.headers[name]));
+    });
+
+    return parts.join('\n');
+
+  },
+
+  canonicalizedResource: function canonicalizedResource() {
+
+    var r = this.request;
+
+    var parts = r.path.split('?');
+    var path = parts[0];
+    var querystring = parts[1];
+
+    var resource = '';
+
+    if (r.virtualHostedBucket)
+      resource += '/' + r.virtualHostedBucket;
+
+    resource += path;
+
+    if (querystring) {
+
+      // collect a list of sub resources and query params that need to be signed
+      var resources = [];
+
+      AWS.util.arrayEach.call(this, querystring.split('&'), function (param) {
+        var name = param.split('=')[0];
+        var value = param.split('=')[1];
+        if (this.subResources[name] || this.responseHeaders[name]) {
+          var subresource = { name: name };
+          if (value !== undefined) {
+            if (this.subResources[name]) {
+              subresource.value = value;
+            } else {
+              subresource.value = decodeURIComponent(value);
+            }
+          }
+          resources.push(subresource);
+        }
+      });
+
+      resources.sort(function (a, b) { return a.name < b.name ? -1 : 1; });
+
+      if (resources.length) {
+
+        querystring = [];
+        AWS.util.arrayEach(resources, function (res) {
+          if (res.value === undefined) {
+            querystring.push(res.name);
+          } else {
+            querystring.push(res.name + '=' + res.value);
+          }
+        });
+
+        resource += '?' + querystring.join('&');
+      }
+
+    }
+
+    return resource;
+
+  },
+
+  sign: function sign(secret, string) {
+    return AWS.util.crypto.hmac(secret, string, 'base64', 'sha1');
+  }
+});
+
+/**
+ * @api private
+ */
+module.exports = AWS.Signers.VCCloud;
+
+},{"../core":249}],320:[function(require,module,exports){
 function AcceptorStateMachine(states, state) {
   this.currentState = state || null;
   this.states = states || {};
@@ -141419,7 +141603,7 @@ AcceptorStateMachine.prototype.addState = function addState(name, acceptState, f
  */
 module.exports = AcceptorStateMachine;
 
-},{}],320:[function(require,module,exports){
+},{}],321:[function(require,module,exports){
 (function (process,setImmediate){
 /* eslint guard-for-in:0 */
 var AWS;
@@ -142364,7 +142548,7 @@ var util = {
 module.exports = util;
 
 }).call(this,require('_process'),require("timers").setImmediate)
-},{"../apis/metadata.json":113,"./core":249,"_process":335,"fs":328,"timers":343,"uuid":347}],321:[function(require,module,exports){
+},{"../apis/metadata.json":113,"./core":249,"_process":336,"fs":329,"timers":344,"uuid":348}],322:[function(require,module,exports){
 var util = require('../util');
 var Shape = require('../model/shape');
 
@@ -142564,7 +142748,7 @@ function parseUnknown(xml) {
  */
 module.exports = DomXmlParser;
 
-},{"../model/shape":279,"../util":320}],322:[function(require,module,exports){
+},{"../model/shape":279,"../util":321}],323:[function(require,module,exports){
 var util = require('../util');
 var XmlNode = require('./xml-node').XmlNode;
 var XmlText = require('./xml-text').XmlText;
@@ -142668,7 +142852,7 @@ function applyNamespaces(xml, shape, isRoot) {
  */
 module.exports = XmlBuilder;
 
-},{"../util":320,"./xml-node":325,"./xml-text":326}],323:[function(require,module,exports){
+},{"../util":321,"./xml-node":326,"./xml-text":327}],324:[function(require,module,exports){
 /**
  * Escapes characters that can not be in an XML attribute.
  */
@@ -142682,7 +142866,7 @@ function escapeAttribute(value) {
 module.exports = {
     escapeAttribute: escapeAttribute
 };
-},{}],324:[function(require,module,exports){
+},{}],325:[function(require,module,exports){
 /**
  * Escapes characters that can not be in an XML element.
  */
@@ -142696,7 +142880,7 @@ function escapeElement(value) {
 module.exports = {
     escapeElement: escapeElement
 };
-},{}],325:[function(require,module,exports){
+},{}],326:[function(require,module,exports){
 var escapeAttribute = require('./escape-attribute').escapeAttribute;
 
 /**
@@ -142742,7 +142926,7 @@ XmlNode.prototype.toString = function () {
 module.exports = {
     XmlNode: XmlNode
 };
-},{"./escape-attribute":323}],326:[function(require,module,exports){
+},{"./escape-attribute":324}],327:[function(require,module,exports){
 var escapeElement = require('./escape-element').escapeElement;
 
 /**
@@ -142763,7 +142947,7 @@ XmlText.prototype.toString = function () {
 module.exports = {
     XmlText: XmlText
 };
-},{"./escape-element":324}],327:[function(require,module,exports){
+},{"./escape-element":325}],328:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -142916,9 +143100,9 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],328:[function(require,module,exports){
-
 },{}],329:[function(require,module,exports){
+
+},{}],330:[function(require,module,exports){
 (function (global){
 /*!
  * The buffer module from node.js, for the browser.
@@ -144711,7 +144895,7 @@ function isnan (val) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"base64-js":327,"ieee754":331,"isarray":333}],330:[function(require,module,exports){
+},{"base64-js":328,"ieee754":332,"isarray":334}],331:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -145015,7 +145199,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],331:[function(require,module,exports){
+},{}],332:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -145101,7 +145285,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],332:[function(require,module,exports){
+},{}],333:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -145126,14 +145310,14 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],333:[function(require,module,exports){
+},{}],334:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],334:[function(require,module,exports){
+},{}],335:[function(require,module,exports){
 (function(exports) {
   "use strict";
 
@@ -146802,7 +146986,7 @@ module.exports = Array.isArray || function (arr) {
   exports.strictDeepEqual = strictDeepEqual;
 })(typeof exports === "undefined" ? this.jmespath = {} : exports);
 
-},{}],335:[function(require,module,exports){
+},{}],336:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -146988,7 +147172,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],336:[function(require,module,exports){
+},{}],337:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/punycode v1.3.2 by @mathias */
 ;(function(root) {
@@ -147522,7 +147706,7 @@ process.umask = function() { return 0; };
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],337:[function(require,module,exports){
+},{}],338:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -147608,7 +147792,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],338:[function(require,module,exports){
+},{}],339:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -147695,13 +147879,13 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],339:[function(require,module,exports){
+},{}],340:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":337,"./encode":338}],340:[function(require,module,exports){
+},{"./decode":338,"./encode":339}],341:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -147783,7 +147967,7 @@ module.exports = function(qs, sep, eq, options) {
   return obj;
 };
 
-},{}],341:[function(require,module,exports){
+},{}],342:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -147849,9 +148033,9 @@ module.exports = function(obj, sep, eq, name) {
          encodeURIComponent(stringifyPrimitive(obj));
 };
 
-},{}],342:[function(require,module,exports){
-arguments[4][339][0].apply(exports,arguments)
-},{"./decode":340,"./encode":341,"dup":339}],343:[function(require,module,exports){
+},{}],343:[function(require,module,exports){
+arguments[4][340][0].apply(exports,arguments)
+},{"./decode":341,"./encode":342,"dup":340}],344:[function(require,module,exports){
 (function (setImmediate,clearImmediate){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -147930,7 +148114,7 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":335,"timers":343}],344:[function(require,module,exports){
+},{"process/browser.js":336,"timers":344}],345:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -148639,14 +148823,14 @@ function isNullOrUndefined(arg) {
   return  arg == null;
 }
 
-},{"punycode":336,"querystring":339}],345:[function(require,module,exports){
+},{"punycode":337,"querystring":340}],346:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],346:[function(require,module,exports){
+},{}],347:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -149236,7 +149420,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":345,"_process":335,"inherits":332}],347:[function(require,module,exports){
+},{"./support/isBuffer":346,"_process":336,"inherits":333}],348:[function(require,module,exports){
 var v1 = require('./v1');
 var v4 = require('./v4');
 
@@ -149246,7 +149430,7 @@ uuid.v4 = v4;
 
 module.exports = uuid;
 
-},{"./v1":350,"./v4":351}],348:[function(require,module,exports){
+},{"./v1":351,"./v4":352}],349:[function(require,module,exports){
 /**
  * Convert array of 16 byte values to UUID string format of the form:
  * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -149271,7 +149455,7 @@ function bytesToUuid(buf, offset) {
 
 module.exports = bytesToUuid;
 
-},{}],349:[function(require,module,exports){
+},{}],350:[function(require,module,exports){
 (function (global){
 // Unique ID creation requires a high quality random # generator.  In the
 // browser this is a little complicated due to unknown quality of Math.random()
@@ -149308,7 +149492,7 @@ if (!rng) {
 module.exports = rng;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],350:[function(require,module,exports){
+},{}],351:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -149410,7 +149594,7 @@ function v1(options, buf, offset) {
 
 module.exports = v1;
 
-},{"./lib/bytesToUuid":348,"./lib/rng":349}],351:[function(require,module,exports){
+},{"./lib/bytesToUuid":349,"./lib/rng":350}],352:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -149441,7 +149625,7 @@ function v4(options, buf, offset) {
 
 module.exports = v4;
 
-},{"./lib/bytesToUuid":348,"./lib/rng":349}],352:[function(require,module,exports){
+},{"./lib/bytesToUuid":349,"./lib/rng":350}],353:[function(require,module,exports){
 // AWS SDK for JavaScript v2.270.1
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // License at https://sdk.amazonaws.com/js/BUNDLE_LICENSE.txt
@@ -149464,5 +149648,5 @@ if (typeof self !== 'undefined') self.AWS = AWS;
  * browser builder will strip out this line if services are supplied on the command line.
  */
 require('../clients/browser_default');
-},{"../clients/browser_default":176,"./browser_loader":246,"./core":249}]},{},[352]);
+},{"../clients/browser_default":176,"./browser_loader":246,"./core":249}]},{},[353]);
 
