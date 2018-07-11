@@ -130468,12 +130468,12 @@ AWS.Credentials = AWS.util.inherit({
       this.accessKeyId = creds.accessKeyId;
       this.secretAccessKey = creds.secretAccessKey;
       this.sessionToken = creds.sessionToken;
-      this.remoteAuthorizing = creds.remoteAuthorizing
+      this.getAuthorization = creds.getAuthorization
     } else {
       this.accessKeyId = arguments[0];
       this.secretAccessKey = arguments[1];
       this.sessionToken = arguments[2];
-      this.remoteAuthorizing = arguments[3];
+      this.getAuthorization = arguments[3];
     }
   },
 
@@ -141436,8 +141436,8 @@ AWS.Signers.VCCloud = inherit(AWS.Signers.RequestSigner, {
       this.request.headers['x-amz-security-token'] = credentials.sessionToken;
     }
 
-    if(credentials.remoteAuthorizing) {
-      var auth = credentials.remoteAuthorizing(this.request, credentials, this.canonicalizedResource())
+    if(credentials.getAuthorization) {
+      var auth = credentials.getAuthorization(this.stringToSign())
     } else {
       var signature = this.sign(credentials.secretAccessKey, this.stringToSign());
       var auth = 'AWS ' + credentials.accessKeyId + ':' + signature;
